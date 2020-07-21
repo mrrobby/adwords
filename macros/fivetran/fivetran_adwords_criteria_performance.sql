@@ -21,7 +21,8 @@ aggregated as (
             'customer_id',
             'id',
             'ad_group_id',
-            'date'
+            'date',
+            'fivetran_id'
         ) }}::varchar as id,
         
         date::date as date_day,
