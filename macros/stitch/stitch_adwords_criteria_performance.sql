@@ -1,6 +1,6 @@
 {% macro stitch_adwords_criteria_performance() %}
 
-    {{ adapter_macro('adwords.stitch_adwords_criteria_performance') }}
+    {{ adapter.dispatch('stitch_adwords_criteria_performance', 'adwords')() }}
 
 {% endmacro %}
 
@@ -18,10 +18,10 @@ aggregated as (
     select
         
         {{ dbt_utils.surrogate_key (
-            'customerid',
+            ['customerid',
             'keywordid',
             'adgroupid',
-            'day'
+            'day']
         ) }}::varchar as id,
         
         day::date as date_day,
