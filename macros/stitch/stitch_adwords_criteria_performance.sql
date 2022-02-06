@@ -18,10 +18,10 @@ aggregated as (
     select
         
         {{ dbt_utils.surrogate_key (
-            'customerid',
+            ['customerid',
             'keywordid',
             'adgroupid',
-            'day'
+            'day']
         ) }}::varchar as id,
         
         day::date as date_day,
